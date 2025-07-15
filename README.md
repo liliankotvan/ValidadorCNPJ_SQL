@@ -52,7 +52,7 @@ dbutils.notebook.run(
   }
 )
 
-📋 Diagnóstico Produzido
+## 📋 Diagnóstico Produzido
 A view resultado_validacao retorna:
 
 cnpj: campo original
@@ -65,13 +65,13 @@ dv1_original, dv2_original: extraídos do CNPJ
 
 valido: TRUE se bate com os dígitos; FALSE caso contrário
 
-🛡️ Regras de Validação
+## 🛡️ Regras de Validação
 - O CNPJ deve ter **14 caracteres alfanuméricos**
 - Os dois últimos caracteres devem corresponder aos **dígitos verificadores calculados**
 - A conversão é feita com base na fórmula:
   - `ord(caractere) - 48` → valor usado no módulo 11
 
-📦 Organização Sugerida
+## 📦 Organização Sugerida
 
 ValidadorCNPJ_SQL/
 ├── validador_cnpj.sql        # script SQL com placeholders
@@ -85,7 +85,7 @@ Sugestões, melhorias e adaptações são muito bem-vindas. Fique à vontade par
 
 ---
 
-📄 Licença
+## 📄 Licença
 Distribuído sob licença MIT.
 
 
