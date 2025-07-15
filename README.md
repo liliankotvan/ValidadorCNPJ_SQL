@@ -3,6 +3,23 @@
 Script modular Spark SQL que valida CNPJs alfanuméricos com base nos dígitos verificadores DV1/DV2 conforme regras da Receita Federal.
 
 ---
+## 🚀 Funcionalidades
+
+- ✅ Limpeza e normalização do campo CNPJ
+- 🔢 Cálculo de DV1 e DV2 com pesos corretos
+- 🔍 Diagnóstico linha a linha com identificação de válidos/inválidos
+- 📋 Geração opcional de tabela de log com registros inválidos
+- 📦 Estrutura modular pronta para notebooks, jobs e pipelines agendados
+
+---
+
+## 🧰 Requisitos
+
+- Databricks (ou ambiente com suporte a Spark SQL)
+- Tabela de entrada com campo de CNPJ contendo valores mistos alfanuméricos
+- Coluna contendo o CNPJ com até 14 caracteres (sem formatação)
+
+---
 
 ## ⚙️ Parâmetros de entrada
 
@@ -49,11 +66,10 @@ dv1_original, dv2_original: extraídos do CNPJ
 valido: TRUE se bate com os dígitos; FALSE caso contrário
 
 🛡️ Regras de Validação
-O CNPJ precisa ter 14 caracteres alfanuméricos
-
-Os DV1 e DV2 são calculados com pesos definidos pela Receita
-
-Os valores alfanuméricos são convertidos com a fórmula ASCII - 48
+- O CNPJ deve ter **14 caracteres alfanuméricos**
+- Os dois últimos caracteres devem corresponder aos **dígitos verificadores calculados**
+- A conversão é feita com base na fórmula:
+  - `ord(caractere) - 48` → valor usado no módulo 11
 
 📦 Organização Sugerida
 
@@ -61,6 +77,13 @@ ValidadorCNPJ_SQL/
 ├── validador_cnpj.sql        # script SQL com placeholders
 ├── README.md                 # instruções de uso
 
+---
+
+## 🤝 Contribuição
+
+Sugestões, melhorias e adaptações são muito bem-vindas. Fique à vontade para adaptar o script ao seu contexto específico, incluir novos critérios ou automatizar sua execução em pipelines SQL.
+
+---
 
 📄 Licença
 Distribuído sob licença MIT.
